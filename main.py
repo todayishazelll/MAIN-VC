@@ -8,9 +8,9 @@ from solver import Solver
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("-config", "-c", default="config.yaml")
-    parser.add_argument("-data_dir", "-d")
+    parser.add_argument("-data_dir", "-d", required=True)  # Make this required
     parser.add_argument("-train_set", default="train")
-    parser.add_argument("-train_index_file")
+    parser.add_argument("-train_index_file", default="train_samples_128.json")  # Default value for train_index_file
     parser.add_argument("--load_model", action="store_true")
     parser.add_argument("--load_opt", action="store_true")
     parser.add_argument("-store_model_path")
@@ -31,4 +31,5 @@ if __name__ == "__main__":
     if args.iters > 0:
         solver.train(n_iterations=args.iters)
 
-    complete = input("[MAIN-VC]Training Completed! 🍹")
+    complete = input("[MAIN-VC] Training Completed! 🍹")
+
